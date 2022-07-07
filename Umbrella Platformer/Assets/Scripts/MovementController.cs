@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class MovementController : MonoBehaviour
 {
-    public float closedGravity = 1.5f;
+    public float closedGravity = 0.9f;
     public float openGravity = 0.4f;
     public float moveSpeed = 4;
-    public float jumpHeight = 0.5f;
+    public float jumpHeight = 2;
 
     private Rigidbody2D _rigidbody;
-    private float moveLimiter = 0.7f;
 
-    bool canJump;
-    bool isOpen = true;
+    public bool isOpen = true;
+
+    float jumpForce;
+
+    bool isGrounded;
+    bool isJumping;
+    bool jumpKeyHeld;
+    Vector2 counterJumpForce = new Vector2(0, -1f);
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -28,23 +35,31 @@ public class MovementController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.X)) {
             isOpen = !isOpen; //flip bool to toggle open
-            print(isOpen);
 
             if (isOpen) {
                 _rigidbody.gravityScale = openGravity;
+                print("Open");
             }
             else {
                 _rigidbody.gravityScale = closedGravity;
+                print("Closed");
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space) && canJump == true) {
-            if (isOpen) {
-                _rigidbody.gravityScale = 1;
-            } // TODO: FIX GRAVITY SCALE DURING JUMP - variable height jump during open state, not during closed state!! 
-            
-            _rigidbody.velocity = Vector2.up * jumpHeight;
+
+        // jump control
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            jumpKeyHeld = true;
+            if (isGrounded) {
+                isJumping = true;
+                jumpForce = CalculateJumpForce(Physics2D.gravity.magnitude, 0.6f);
+                _rigidbody.AddForce(Vector2.up * jumpForce * _rigidbody.mass, ForceMode2D.Impulse);
+            }
         }
+        else if (Input.GetKeyUp(KeyCode.Space)) {
+            jumpKeyHeld = false;
+        }
+
 
 
         // left right movement control
@@ -59,27 +74,34 @@ public class MovementController : MonoBehaviour
             _rigidbody.velocity = new Vector2(0, _rigidbody.velocity.y);
         }
 
-        print(_rigidbody.gravityScale);
 
+    }
+
+    private void FixedUpdate() {
+        if (isJumping) {
+            if (!jumpKeyHeld && Vector2.Dot(_rigidbody.velocity, Vector2.up) > 0) {
+                _rigidbody.AddForce(counterJumpForce * _rigidbody.mass);
+            }
+        }
     }
 
 
     private void OnCollisionEnter2D(Collision2D collision) {
         //If we collide with an object tagged "ground" then our jump resets and we can now jump.
         if (collision.gameObject.tag == "ground") {
-            canJump = true;
-
-            print("canjump");
-            //print statements print to the Console panel in Unity. 
-            //This will print the value of onGround, which is a boolean, so either True or False.
+            isGrounded = true;
         }
     }
 
     private void OnCollisionExit2D(Collision2D collision) {
         //If we exit our collision with the "ground" object, then we are unable to jump.
         if (collision.gameObject.tag == "ground") {
-            canJump = false;
+            isGrounded = false;
         }
+    }
+
+    public static float CalculateJumpForce(float gravityStrength, float jumpHeight) {
+        return Mathf.Sqrt(2 * gravityStrength * jumpHeight);
     }
 
 }
