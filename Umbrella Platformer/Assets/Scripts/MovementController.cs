@@ -20,13 +20,17 @@ public class MovementController : MonoBehaviour
     bool jumpKeyHeld;
     Vector2 counterJumpForce = new Vector2(0, -1f);
 
+    public SpriteRenderer _spriterenderer; 
+    public Sprite closedSprite;
+    public Sprite openSprite;
+
 
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
-
+        _spriterenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -39,10 +43,16 @@ public class MovementController : MonoBehaviour
             if (isOpen) {
                 _rigidbody.gravityScale = openGravity;
                 print("Open");
+                _spriterenderer.sprite = openSprite;
+                Destroy(GetComponent<PolygonCollider2D>());
+                gameObject.AddComponent<PolygonCollider2D>();
             }
             else {
                 _rigidbody.gravityScale = closedGravity;
                 print("Closed");
+                _spriterenderer.sprite = closedSprite;
+                Destroy(GetComponent<PolygonCollider2D>());
+                gameObject.AddComponent<PolygonCollider2D>();
             }
         }
 
