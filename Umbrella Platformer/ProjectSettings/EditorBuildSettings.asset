@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Lvl2.unity
     guid: e18eb29798b73ad4b894857583e7c75b
+  - enabled: 1
+    path: Assets/Scenes/WinScreen.unity
+    guid: b1a17d87f15f244d99ba48d907a1f848
+  - enabled: 1
+    path: Assets/Scenes/LoseScreen.unity
+    guid: bba1b26ea43124ad2b7c6f22ce39ed24
   m_configObjects: {}

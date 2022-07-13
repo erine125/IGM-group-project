@@ -20,7 +20,7 @@ public class TrackWinLose : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "obstacle") {
             Debug.Log("game over");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            SceneManager.LoadScene("LoseScreen");
         } 
 
         if (collision.gameObject.tag == "Finish") {

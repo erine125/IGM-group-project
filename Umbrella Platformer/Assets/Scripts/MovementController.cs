@@ -15,6 +15,8 @@ public class MovementController : MonoBehaviour
 
     float jumpForce;
 
+    public AudioSource jumpSound;
+
     bool isGrounded;
     bool isJumping;
     bool jumpKeyHeld;
@@ -68,6 +70,12 @@ public class MovementController : MonoBehaviour
         }
         else if (Input.GetKeyUp(KeyCode.Space)) {
             jumpKeyHeld = false;
+        }
+
+        //jump sound
+        if (Input.GetKeyDown(KeyCode.Space) && isJumping == true)
+        {
+            jumpSound.Play();
         }
 
 
