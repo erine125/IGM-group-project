@@ -168,6 +168,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -1264,6 +1265,55 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Tileset_edit_9: -7644529869137978710
+      Tileset_edit_25: 7676834735731809217
+      Tileset_edit_43: -6196696350099932532
+      Tileset_edit_41: 8914538267619922294
+      Tileset_edit_26: 1319271994885663903
+      Tileset_edit_21: -8280387565808866182
+      Tileset_edit_36: 7429499964502855613
+      Tileset_edit_37: 5515870241656016141
+      Tileset_edit_24: -8885738088020145732
+      Tileset_edit_35: -6754954011968357461
+      Tileset_edit_11: -1532212946598307748
+      Tileset_edit_28: 7554179167146596224
+      Tileset_edit_7: 7675863855772972349
+      Tileset_edit_47: 8122626575516039756
+      Tileset_edit_16: 3647505101402624410
+      Tileset_edit_30: -6568857003541500601
+      Tileset_edit_1: -8832891984092319677
+      Tileset_edit_2: -4017722020434735750
+      Tileset_edit_17: -7045229836212458627
+      Tileset_edit_39: -6413387659474062543
+      Tileset_edit_8: -6131255752527195684
+      Tileset_edit_27: 1697455613945552372
+      Tileset_edit_22: -396711085801683749
+      Tileset_edit_14: 5837437595791056457
+      Tileset_edit_0: -3438240530089594985
+      Tileset_edit_4: 3275368421935771230
+      Tileset_edit_33: 6321657357631363099
+      Tileset_edit_23: 6381698992833361005
+      Tileset_edit_46: -4568225704323820618
+      Tileset_edit_3: 20299547545583768
+      Tileset_edit_6: 6542255823363345809
+      Tileset_edit_18: 6219608195518567284
+      Tileset_edit_38: -2572971157141210282
+      Tileset_edit_44: -7065001833723223994
+      Tileset_edit_45: 5668632127906058328
+      Tileset_edit_10: 6072169339844219696
+      Tileset_edit_13: -8281544940827424809
+      Tileset_edit_29: -2229061659892504015
+      Tileset_edit_40: 7114190730407601938
+      Tileset_edit_32: 7061143253688420106
+      Tileset_edit_5: 4858397667349741530
+      Tileset_edit_12: 4680061232915652441
+      Tileset_edit_15: 5608911465360973704
+      Tileset_edit_42: -4011629344609668574
+      Tileset_edit_31: 3080937640838297233
+      Tileset_edit_19: -48456956570160970
+      Tileset_edit_20: 6522562238287686841
+      Tileset_edit_34: -7626810683797484087
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
