@@ -25,7 +25,9 @@ public class TrackWinLose : MonoBehaviour
 
         if (collision.gameObject.tag == "Finish") {
             Debug.Log("won");
-            SceneManager.LoadScene("Lvl1");
+            if (SceneManager.GetActiveScene().name == "Lvl1") {
+                SceneManager.LoadScene("Lvl2");
+            }
         }
     }
 }
